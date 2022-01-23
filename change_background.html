@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice №3</title>
+    <style>
+        .container {
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Здесь можно выбрать цвет страницы!</h2>
+        <select id="coloring" onchange="changeColorShort()">
+            <option disabled selected="selected">Выберите цвет</option>
+            <option value="white">Белая</option>
+            <option value="blue">Голубая</option>
+            <option value="navy">Синяя</option>
+            <option value="purple">Фиолетовая</option>
+            <option value="green">Зеленая</option>
+        </select>
+    </div>
+
+    <script>
+        function changeColor() {
+            switch (document.getElementById("coloring").value) {
+                case "white":
+                    document.body.style.background = "white";
+                    break;
+                case "blue":
+                    document.body.style.background = "rgb(64, 126, 218)";
+                    break;
+                case "navy":
+                    document.body.style.background = "rgb(10, 22, 88)";
+                    break;
+                case "purple":
+                    document.body.style.background = "rgb(196, 93, 196)";
+                    break;
+                case "green":
+                    document.body.style.background = "rgb(9, 92, 50)";
+                    break;
+            }
+        }
+
+        function changeColorShort() {
+            let someColor = document.getElementById("coloring").value;
+            let color =
+                (someColor == "white") ? "white" :
+                (someColor == "blue") ? "rgb(64, 126, 218)" :
+                (someColor == "navy") ? "rgb(10, 22, 88)" :
+                (someColor == "purple") ? "rgb(196, 93, 196)" :
+                (someColor == "green") ? "rgb(9, 92, 50)" : 'Цвет страницы не выбран!';
+            document.body.style.background = color;
+        }
+    </script>
+</body>
+
+</html>

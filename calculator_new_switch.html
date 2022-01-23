@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice №1</title>
+</head>
+
+<body>
+    <label>Введите первое число </label><input type="text" id="number1" />
+    <p><label>Введите второе число </label><input type="text" id="number2" /></p>
+    <h3>Выберите математическую операцию: </h3>
+    <button onclick="calcMathShort('plus')">Сложение</button>
+    <button onclick="calcMathShort('minus')">Вычитание</button>
+    <button onclick="calcMathShort('mult')">Умножение</button>
+    <button onclick="calcMathShort('segm')">Деление</button>
+    <div id="calcResult"></div>
+
+    <script>
+        function calcMath(str) {
+            let a = Number(document.getElementById('number1').value);
+            let b = Number(document.getElementById('number2').value);
+            switch (str) {
+                case 'plus':
+                    let result1 = a + b;
+                    document.querySelector('#calcResult').innerHTML = `Сумма чисел ${a} и ${b} равна ${result1}`;
+                    break;
+                case 'minus':
+                    let result2 = a - b;
+                    document.querySelector('#calcResult').innerHTML = `Разность чисел ${a} и ${b} равна ${result2}`;
+                    break;
+                case 'mult':
+                    let result3 = a * b;
+                    document.querySelector('#calcResult').innerHTML =
+                        `Умножение чисел ${a} и ${b} равно ${result3}`;
+                    break;
+                case 'segm':
+                    if (b == 0) {
+                        document.querySelector('#calcResult').innerHTML = 'На ноль делить нельзя!';
+                    } else {
+                        let result4 = a / b;
+                        document.querySelector('#calcResult').innerHTML = `Деление чисел ${a} и ${b} равно ${result4}`;
+                        break;
+                    }
+            }
+        }
+
+        function calcMathShort(str) {
+            let a = Number(document.getElementById('number1').value);
+            let b = Number(document.getElementById('number2').value);
+
+            let result =
+                (str === 'plus') ? a + b :
+                (str === 'minus') ? a - b :
+                (str === 'mult') ? a * b :
+                (str === 'segm' && b != 0) ? a / b : 'На ноль делить нельзя!';
+
+            document.querySelector('#calcResult').innerHTML = `${result}`;
+        }
+    </script>
+</body>
+
+</html>
